@@ -3,6 +3,7 @@
 Docker environment with local repositories
 
 
+
 ## Installation scripts
 
 - https://github.com/ownport/docker-install-scripts
@@ -14,6 +15,10 @@ Docker environment with local repositories
 ## Image builder
 
 - https://github.com/ownport/docker-builder
+
+```sh
+$ docker pull ownport/docker-builder
+```
 
 ## Sandbox
 

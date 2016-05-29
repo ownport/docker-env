@@ -63,3 +63,6 @@ target/
 
 # Install scripts
 install-scripts/
+
+# Sandbox
+sandbox/

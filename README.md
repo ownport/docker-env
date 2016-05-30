@@ -1,25 +1,8 @@
 # docker-env
 
-Docker environment with local repositories
+The environment for fast developing and testing docker images. It contains:
 
-
-
-## Installation scripts
-
-- https://github.com/ownport/docker-install-scripts
-
-## Repositories
-
-- https://github.com/ownport/docker-repo-scripts
-
-## Image builder
-
-- https://github.com/ownport/docker-builder
-
-```sh
-$ docker pull ownport/docker-builder
-```
-
-## Sandbox
-
-- https://github.com/ownport/docker-sandbox-env
+- Installation scripts, https://github.com/ownport/docker-install-scripts
+- Script for managing local repositories, https://github.com/ownport/docker-repo-scripts
+- Builder, https://github.com/ownport/docker-builder
+- Dockerfiles sandbox, https://github.com/ownport/docker-sandbox-env

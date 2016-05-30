@@ -75,11 +75,24 @@ env-deploy() {
 
 }
 
+dev-env-deploy() {
+
+    echo "[ERROR] Not implemented yet"
+    exit 1
+}
+
 env-update() {
 
     echo "[ERROR] Not implemented yet"
     exit 1
 }
+
+
+clean() {
+
+    rm -rf $(pwd)/tmp/ $(pwd)/install-scripts/ $(pwd)/sandbox/
+}
+
 
 
 $@

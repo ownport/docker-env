@@ -61,8 +61,8 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 
-# Install scripts
-install-scripts/
-
-# Sandbox
+# Ignore docker-env directories
+scripts/install/
+scripts/repo/
 sandbox/
+builder/

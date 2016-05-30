@@ -17,6 +17,15 @@ usage() {
     echo
 }
 
+clean() {
+
+    rm -rf \
+        $(pwd)/tmp/ \
+        $(pwd)/install-scripts/ \
+        $(pwd)/sandbox/ \
+        $(pwd)/scripts/ 
+}
+
 
 env-deploy() {
 
@@ -77,21 +86,30 @@ env-deploy() {
 
 dev-env-deploy() {
 
-    echo "[ERROR] Not implemented yet"
-    exit 1
+    git clone https://github.com/ownport/docker-builder.git builder
+    git clone https://github.com/ownport/docker-install-scripts.git scripts/install
+    git clone https://github.com/ownport/docker-repo-scripts.git scripts/repo
+    git clone https://github.com/ownport/docker-sandbox-env.git sandbox
 }
 
-env-update() {
+dev-env-update() {
 
-    echo "[ERROR] Not implemented yet"
-    exit 1
+    CURR_DIR=$(pwd)
+
+    echo "[INFO] Update builder repo"
+    cd ${CURR_DIR%%/}/builder && git pull origin
+
+    echo "[INFO] Update install scripts"
+    cd ${CURR_DIR%%/}/scripts/install && git pull origin
+
+    echo "[INFO] Update docker repositories scripts"
+    cd ${CURR_DIR%%/}/scripts/repo && git pull origin
+
+    echo "[INFO] Update sandbox repo"
+    cd ${CURR_DIR%%/}/sandbox && git pull origin
 }
 
 
-clean() {
-
-    rm -rf $(pwd)/tmp/ $(pwd)/install-scripts/ $(pwd)/sandbox/
-}
 
 
 

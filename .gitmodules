@@ -1,0 +1,12 @@
+[submodule "builder"]
+	path = builder
+	url = https://github.com/ownport/docker-builder.git
+[submodule "scripts/repo"]
+	path = scripts/repo
+	url = https://github.com/ownport/docker-repo-scripts.git
+[submodule "scripts/install"]
+	path = scripts/install
+	url = https://github.com/ownport/docker-install-scripts.git
+[submodule "sandbox"]
+	path = sandbox
+	url = https://github.com/ownport/docker-sandbox-env.git

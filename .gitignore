@@ -62,7 +62,7 @@ target/
 .ipynb_checkpoints
 
 # Ignore docker-env directories
-scripts/install/
-scripts/repo/
-sandbox/
-builder/
+# scripts/install/
+# scripts/repo/
+# sandbox/
+# builder/

@@ -3,7 +3,7 @@
 #   docker environment manage scripts
 #
 
-DOCKER_ENV_PATH=$(pwd)
+DOCKER_ENV_PATH=$(dirname $(readlink -f $0))
 
 source ${DOCKER_ENV_PATH%%/}/SETTINGS
 
@@ -38,20 +38,33 @@ dev-env-new() {
 
 dev-env-update() {
 
-    CURR_DIR=$(pwd)
-
     echo "[INFO] Update local repos"
-    cd ${CURR_DIR%%/}/repo && git pull origin master
+    cd ${DOCKER_ENV_PATH%%/}/repo && git pull origin master
 
     echo "[INFO] Update install scripts"
-    cd ${CURR_DIR%%/}/scripts/install && git pull origin master
+    cd ${DOCKER_ENV_PATH%%/}/scripts/install && git pull origin master
 
     echo "[INFO] Update docker repositories scripts"
-    cd ${CURR_DIR%%/}/scripts/repo && git pull origin master
+    cd ${DOCKER_ENV_PATH%%/}/scripts/repo && git pull origin master
 
     echo "[INFO] Update sandbox repo"
-    cd ${CURR_DIR%%/}/sandbox && git pull origin master
+    cd ${DOCKER_ENV_PATH%%/}/sandbox && git pull origin master
 }
 
+repo-update() {
+
+    local REPOSITORY=${1:-}
+
+    mkdir -p \
+        ${DOCKER_ENV_PATH%%/}/files/alpine/ \
+        ${DOCKER_ENV_PATH%%/}/files/jenkins/ \
+        ${DOCKER_ENV_PATH%%/}/files/oracle/ \
+        ${DOCKER_ENV_PATH%%/}/files/pypi/ \
+        ${DOCKER_ENV_PATH%%/}/files/tarballs/
+
+    echo "[INFO] Update alpine repository"
+    ALPINE_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/ \
+        ${DOCKER_ENV_PATH}/scripts/repo/alpine/update.sh all
+}
 
 $@

@@ -62,9 +62,25 @@ repo-update() {
         ${DOCKER_ENV_PATH%%/}/files/pypi/ \
         ${DOCKER_ENV_PATH%%/}/files/tarballs/
 
-    echo "[INFO] Update alpine repository"
-    ALPINE_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/ \
-        ${DOCKER_ENV_PATH}/scripts/repo/alpine/update.sh all
+    if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "alpine" ]
+    then
+
+        echo "[INFO] Update alpine repository"
+        ALPINE_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/ \
+            ${DOCKER_ENV_PATH%%/}/scripts/repo/alpine/update.sh all
+    fi
+
+    if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "jenkins" ]
+    then
+
+        echo "[INFO] Update Jenkins repository"
+        JENKINS_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/jenkins/ \
+            ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/update.sh jenkins_by_list ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/jenkins.versions
+        echo "[INFO] Update Jenkins plugins"
+        JENKINS_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/jenkins/ \
+            ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/update.sh plugins_by_list ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/jenkins.plugins
+    fi
+
 }
 
 $@

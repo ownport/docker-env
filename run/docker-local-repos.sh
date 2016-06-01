@@ -24,7 +24,7 @@ start() {
             -v $(pwd)/files/pypi/:/var/www/repo/pypi/:ro \
             -v $(pwd)/files/oracle/:/var/www/repo/oracle/:ro \
             -v $(pwd)/files/jenkins/:/var/www/repo/jenkins/:ro \
-            -v $(pwd)/repfileso/tar.gz/:/var/www/repo/tar.gz/:ro \
+            -v $(pwd)/files/tar.gz/:/var/www/repo/tar.gz/:ro \
             -v $(pwd)/sandbox/scripts/:/var/www/scripts/alpine/:ro \
             ownport/docker-local-repos:latest && \
         echo '[INFO] docker-local-repos container was started';

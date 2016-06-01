@@ -3,6 +3,10 @@
 #   docker environment manage scripts
 #
 
+DOCKER_ENV_PATH=$(pwd)
+
+source ${DOCKER_ENV_PATH%%/}/SETTINGS
+
 usage() {
 
     echo "usage: ./manage.sh <command> <args>"
@@ -18,41 +22,36 @@ usage() {
 clean() {
 
     rm -rf \
-        $(pwd)/tmp/ \
-        $(pwd)/repo/ \
-        $(pwd)/install-scripts/ \
-        $(pwd)/sandbox/ \
-        $(pwd)/scripts/
+        ${DOCKER_ENV_PATH%%/}/tmp/ \
+        ${DOCKER_ENV_PATH%%/}/files/ \
+        ${DOCKER_ENV_PATH%%/}/repo/ \
+        ${DOCKER_ENV_PATH%%/}/sandbox/ \
+        ${DOCKER_ENV_PATH%%/}/scripts/
 }
 
-dev-env-deploy() {
+dev-env-new() {
 
-    [ ! -d $(pwd)/repo/ ] && { mkdir -p $(pwd)/repo/; }
-    [ ! -d $(pwd)/builder/ ] && { git clone https://github.com/ownport/docker-builder.git builder; }
-    [ ! -d $(pwd)/scripts/install/ ] && { git clone https://github.com/ownport/docker-install-scripts.git scripts/install; }
-    [ ! -d $(pwd)/scripts/repo/ ] && { git clone https://github.com/ownport/docker-repo-scripts.git scripts/repo; }
-    [ ! -d $(pwd)/sandbox/ ] && { git clone https://github.com/ownport/docker-sandbox-env.git sandbox; }
+    [ ! -d $(pwd)/files/ ] && { mkdir -p $(pwd)/files/; }
+
+    git submodule init && git submodule update
 }
 
 dev-env-update() {
 
     CURR_DIR=$(pwd)
 
-    echo "[INFO] Update builder repo"
-    cd ${CURR_DIR%%/}/builder && git pull origin
+    echo "[INFO] Update local repos"
+    cd ${CURR_DIR%%/}/repo && git pull origin master
 
     echo "[INFO] Update install scripts"
-    cd ${CURR_DIR%%/}/scripts/install && git pull origin
+    cd ${CURR_DIR%%/}/scripts/install && git pull origin master
 
     echo "[INFO] Update docker repositories scripts"
-    cd ${CURR_DIR%%/}/scripts/repo && git pull origin
+    cd ${CURR_DIR%%/}/scripts/repo && git pull origin master
 
     echo "[INFO] Update sandbox repo"
-    cd ${CURR_DIR%%/}/sandbox && git pull origin
+    cd ${CURR_DIR%%/}/sandbox && git pull origin master
 }
-
-
-
 
 
 $@

@@ -81,6 +81,13 @@ repo-update() {
             ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/update.sh plugins_by_list ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/jenkins.plugins
     fi
 
+    if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "oracle-java" ]
+    then
+
+        echo "[INFO] Update Oracle Java repository"
+        ORACLE_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/oracle/ \
+            ${DOCKER_ENV_PATH%%/}/scripts/repo/oracle/update.sh all
+    fi
 }
 
 $@

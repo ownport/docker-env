@@ -18,7 +18,7 @@ start() {
     if [ -z $(get_local_repos_id) ];
     then
         docker run -d --name 'docker-local-repos' \
-            -h docker-builder \
+            -h docker-local-repos \
             -v $(pwd)/scripts/install/:/var/www/install:ro \
             -v $(pwd)/files/alpine/:/var/www/repo/alpine/:ro \
             -v $(pwd)/files/pypi/:/var/www/repo/pypi/:ro \

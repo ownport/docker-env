@@ -5,7 +5,7 @@
 
 DOCKER_ENV_PATH=$(dirname $(readlink -f $0))
 
-source ${DOCKER_ENV_PATH%%/}/SETTINGS
+source ${DOCKER_ENV_PATH%%/}/etc/settings
 
 usage() {
 
@@ -87,6 +87,16 @@ repo-update() {
         echo "[INFO] Update Oracle Java repository"
         ORACLE_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/oracle/ \
             ${DOCKER_ENV_PATH%%/}/scripts/repo/oracle/update.sh all
+    fi
+
+    if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "pypi" ]
+    then
+
+        echo "[INFO] Update Python packages repository"
+        ${DOCKER_ENV_PATH%%/}/scripts/repo/pypi/update.sh \
+            ${DOCKER_ENV_PATH%%/}/scripts/pypi-mirror/pypi-mirror.py \
+            ${DOCKER_ENV_PATH%%/}/etc/pypi.packages \
+            ${DOCKER_ENV_PATH%%/}/files/pypi/
     fi
 }
 

@@ -55,48 +55,24 @@ repo-update() {
 
     local REPOSITORY=${1:-}
 
-    mkdir -p \
-        ${DOCKER_ENV_PATH%%/}/files/alpine/ \
-        ${DOCKER_ENV_PATH%%/}/files/jenkins/ \
-        ${DOCKER_ENV_PATH%%/}/files/oracle/ \
-        ${DOCKER_ENV_PATH%%/}/files/pypi/ \
-        ${DOCKER_ENV_PATH%%/}/files/tarballs/
-
     if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "alpine" ]
     then
-
-        echo "[INFO] Update alpine repository"
-        ALPINE_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/ \
-            ${DOCKER_ENV_PATH%%/}/scripts/repo/alpine/update.sh all
+        ${DOCKER_ENV_PATH%%/}/scripts/repo/update.sh alpine ${DOCKER_ENV_PATH%%/}/files/
     fi
 
     if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "jenkins" ]
     then
-
-        echo "[INFO] Update Jenkins repository"
-        JENKINS_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/jenkins/ \
-            ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/update.sh jenkins_by_list ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/jenkins.versions
-        echo "[INFO] Update Jenkins plugins"
-        JENKINS_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/jenkins/ \
-            ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/update.sh plugins_by_list ${DOCKER_ENV_PATH%%/}/scripts/repo/jenkins/jenkins.plugins
+        ${DOCKER_ENV_PATH%%/}/scripts/repo/update.sh jenkins ${DOCKER_ENV_PATH%%/}/files/
     fi
 
     if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "oracle-java" ]
     then
-
-        echo "[INFO] Update Oracle Java repository"
-        ORACLE_REPO_PATH=${DOCKER_ENV_PATH%%/}/files/oracle/ \
-            ${DOCKER_ENV_PATH%%/}/scripts/repo/oracle/update.sh all
+        ${DOCKER_ENV_PATH%%/}/scripts/repo/update.sh oracle ${DOCKER_ENV_PATH%%/}/files/
     fi
 
     if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "pypi" ]
     then
-
-        echo "[INFO] Update Python packages repository"
-        ${DOCKER_ENV_PATH%%/}/scripts/repo/pypi/update.sh \
-            ${DOCKER_ENV_PATH%%/}/scripts/pypi-mirror/pypi-mirror.py \
-            ${DOCKER_ENV_PATH%%/}/etc/pypi.packages \
-            ${DOCKER_ENV_PATH%%/}/files/pypi/
+        ${DOCKER_ENV_PATH%%/}/scripts/repo/update.sh pypi ${DOCKER_ENV_PATH%%/}/files/
     fi
 }
 

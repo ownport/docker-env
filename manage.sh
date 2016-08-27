@@ -19,37 +19,6 @@ usage() {
     echo
 }
 
-clean() {
-
-    rm -rf \
-        ${DOCKER_ENV_PATH%%/}/tmp/ \
-        ${DOCKER_ENV_PATH%%/}/files/ \
-        ${DOCKER_ENV_PATH%%/}/repo/ \
-        ${DOCKER_ENV_PATH%%/}/sandbox/ \
-        ${DOCKER_ENV_PATH%%/}/scripts/
-}
-
-dev-env-new() {
-
-    [ ! -d $(pwd)/files/ ] && { mkdir -p $(pwd)/files/; }
-
-    git submodule init && git submodule update
-}
-
-dev-env-update() {
-
-    echo "[INFO] Update local repos"
-    cd ${DOCKER_ENV_PATH%%/}/repo && git pull origin master
-
-    echo "[INFO] Update install scripts"
-    cd ${DOCKER_ENV_PATH%%/}/scripts/install && git pull origin master
-
-    echo "[INFO] Update docker repositories scripts"
-    cd ${DOCKER_ENV_PATH%%/}/scripts/repo && git pull origin master
-
-    echo "[INFO] Update sandbox repo"
-    cd ${DOCKER_ENV_PATH%%/}/sandbox && git pull origin master
-}
 
 repo-update() {
 

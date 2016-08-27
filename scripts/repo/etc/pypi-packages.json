@@ -1,0 +1,16 @@
+{"name": "pip", "env": ["py2", "py3"]}
+{"name": "setuptools", "env": ["py2", "py3"]}
+{"name": "wheel", "env": ["py2", "py3"] }
+{"name": "lxml", "env": ["py2", "py3"] }
+{"name": "requests", "env": ["py2", "py3"] }
+{"name": "scrapy==1.0.6", "env": ["py2"] }
+{"name": "scrapy==1.1.0", "env": ["py2", "py3"] }
+{"name": "sqlitedict", "env": ["py2", "py3"] }
+{"name": "avro", "env": ["py2", "py3"] }
+{"name": "zope.interface==3.6.0", "env": ["py2"] }
+{"name": "nose", "env": ["py2","py3"] }
+{"name": "coverage", "env": ["py2","py3"] }
+{"name": "pyyaml", "env": ["py2","py3"] }
+{"name": "pytest", "env": ["py2","py3"] }
+{"name": "pytest-cov", "env": ["py2","py3"] }
+{"name": "pytest-mock", "env": ["py2","py3"] }

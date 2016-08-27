@@ -1,6 +1,0 @@
-[submodule "builder"]
-	path = builder
-	url = https://github.com/ownport/docker-builder.git
-[submodule "docker-local-repos"]
-	path = docker-local-repos
-	url = https://github.com/ownport/docker-local-repos.git

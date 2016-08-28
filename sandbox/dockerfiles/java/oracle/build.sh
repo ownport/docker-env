@@ -31,7 +31,6 @@ jre-8u74() {
 	__make_java_image 'ownport/oracle-jre:8u74' 'jre' '8u74' '02'
 }
 
-
 server-jre-8u74() {
 
 	__make_java_image 'ownport/oracle-server-jre:8u74' 'server-jre' '8u74' '02'
@@ -42,30 +41,25 @@ jdk-8u74() {
 	__make_java_image 'ownport/oracle-jdk:8u74' 'jdk' '8u74' '02'
 }
 
-
 jre-8u73() {
 
 	__make_java_image 'ownport/oracle-jre:8u73' 'jre' '8u73' '02'
 }
-
 
 server-jre-8u73() {
 
 	__make_java_image 'ownport/oracle-server-jre:8u73' 'server-jre' '8u73' '02'
 }
 
-
 jre-8u40() {
 
 	__make_java_image 'ownport/oracle-jre:8u40' 'jre' '8u40' '26'
 }
 
-
 server-jre-8u40() {
 
 	__make_java_image 'ownport/oracle-server-jre:8u40' 'server-jre' '8u40' '26'
 }
-
 
 jre-7u76() {
 

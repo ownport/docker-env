@@ -28,43 +28,43 @@ __make_java_image() {
 
 jre-8u74() {
 
-	make_java_image 'ownport/oracle-jre:8u74' 'jre' '8u74' '02'
+	__make_java_image 'ownport/oracle-jre:8u74' 'jre' '8u74' '02'
 }
 
 
 server-jre-8u74() {
 
-	make_java_image 'ownport/oracle-server-jre:8u74' 'server-jre' '8u74' '02'
+	__make_java_image 'ownport/oracle-server-jre:8u74' 'server-jre' '8u74' '02'
 }
 
 
 jre-8u73() {
 
-	make_java_image 'ownport/oracle-jre:8u73' 'jre' '8u73' '02'
+	__make_java_image 'ownport/oracle-jre:8u73' 'jre' '8u73' '02'
 }
 
 
 server-jre-8u73() {
 
-	make_java_image 'ownport/oracle-server-jre:8u73' 'server-jre' '8u73' '02'
+	__make_java_image 'ownport/oracle-server-jre:8u73' 'server-jre' '8u73' '02'
 }
 
 
 jre-8u40() {
 
-	make_java_image 'ownport/oracle-jre:8u40' 'jre' '8u40' '26'
+	__make_java_image 'ownport/oracle-jre:8u40' 'jre' '8u40' '26'
 }
 
 
 server-jre-8u40() {
 
-	make_java_image 'ownport/oracle-server-jre:8u40' 'server-jre' '8u40' '26'
+	__make_java_image 'ownport/oracle-server-jre:8u40' 'server-jre' '8u40' '26'
 }
 
 
 server-jre-7u76() {
 
-	make_java_image 'ownport/oracle-server-jre:7u76' 'server-jre' '7u76' '13'
+	__make_java_image 'ownport/oracle-server-jre:7u76' 'server-jre' '7u76' '13'
 }
 
 

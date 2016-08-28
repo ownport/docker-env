@@ -40,7 +40,7 @@
             "php-pear", "php-net-smtp", "php-mail-mime", "php-xml", "php-json", "php-sqlite3", "php-pdo",
             "php-pdo_sqlite", "php-iconv", "php-openssl", "php-ldap", "icu-libs", "libltdl", "libmcrypt", "libltdl",
             "db", "libsasl", "libldap", "ncurses-terminfo", "ncurses-terminfo-base", "ncurses-libs", "sqlite-libs",
-            "xz-libs"
+            "xz-libs", "musl", "musl-utils", "libffi-dev", "openssl-dev", "python-dev"
         ],
         "mirror-path": "/media/data2/docker-env/files/alpine/v3.4/main/x86_64/"
     },

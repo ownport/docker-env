@@ -20,5 +20,5 @@ The full update contains updates for Alpine, Oracle, jenkins, Pyhton repositorie
 
 To update only specific repository you need to indicate it in the next command:
 ```sh
-$ ./manage.sh repo-update <alpine|oracle|jenkins|pypi>
+$ ./manage.sh repo-update <alpine|apache|oracle|jenkins|pypi>
 ```

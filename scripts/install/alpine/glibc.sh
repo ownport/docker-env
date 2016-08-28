@@ -11,7 +11,7 @@ add() {
 
 	GLIBC_APK="glibc-2.21-r2.apk"
 
-	if [ -z ${BUILDER_HOST} ];
+	if [ -z ${LOCAL_REPOS_HOST} ];
 	then
 
 		GLIBC_URL="https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/${GLIBC_APK}"
@@ -20,14 +20,14 @@ add() {
 
 	else
 
-		GLIBC_URL="http://${BUILDER_HOST}/repo/alpine/apk/${GLIBC_APK}"	
+		GLIBC_URL="http://${LOCAL_REPOS_HOST}/repo/alpine/apk/${GLIBC_APK}"
 		wget ${GLIBC_URL} -O /tmp/${GLIBC_APK}
-	fi 
+	fi
 
 	apk add --update libgcc && \
 	apk add --allow-untrusted /tmp/${GLIBC_APK}
 
-	[ ! -z ${BUILDER_HOST} ] && { apk del wget; } 
+	[ ! -z ${LOCAL_REPOS_HOST} ] && { apk del wget; }
 
 	ln -s /lib/libc.musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1 && \
 	ln -s /lib/libz.so.1 /usr/lib/libz.so.1

@@ -25,11 +25,11 @@ add() {
         exit 1
     }
 
-    if [ -z ${BUILDER_HOST} ];
+    if [ -z ${LOCAL_REPOS_HOST} ];
     then
 
         JDK_URL="http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}-b${JAVA_VERSION_BUILD}/${JAVA_PACKAGE}-${JAVA_VERSION}-linux-x64.tar.gz"
-        apk add --update wget 
+        apk add --update wget
 
         wget -c --progress=dot:mega --no-check-certificate --no-cookies \
             --header "Cookie: oraclelicense=accept-securebackup-cookie" \
@@ -37,7 +37,7 @@ add() {
             -O /tmp/${JAVA_PACKAGE}-${JAVA_VERSION}-linux-x64.tar.gz
     else
 
-        JDK_URL="http://${BUILDER_HOST}/repo/oracle/${JAVA_PACKAGE}-${JAVA_VERSION}-linux-x64.tar.gz" 
+        JDK_URL="http://${LOCAL_REPOS_HOST}/repo/oracle/${JAVA_PACKAGE}-${JAVA_VERSION}-linux-x64.tar.gz"
         wget ${JDK_URL} -O /tmp/${JAVA_PACKAGE}-${JAVA_VERSION}-linux-x64.tar.gz
     fi
 
@@ -50,7 +50,7 @@ add() {
         /tmp/*.tar.gz \
         /opt/jdk/*src.zip \
 
-    
+
     if [ ! -z ${REMOVE_EXT_LIBS}];
     then
 
@@ -78,9 +78,9 @@ add() {
     fi
 
     JAVA_HOME=/opt/jdk
-    echo "export JAVA_HOME=${JAVA_HOME}" >> /etc/profile.d/jdk.sh 
-    echo "export PATH=$JAVA_HOME/bin:\$PATH" >> /etc/profile.d/jdk.sh  
-    chmod +x /etc/profile.d/jdk.sh    
+    echo "export JAVA_HOME=${JAVA_HOME}" >> /etc/profile.d/jdk.sh
+    echo "export PATH=$JAVA_HOME/bin:\$PATH" >> /etc/profile.d/jdk.sh
+    chmod +x /etc/profile.d/jdk.sh
 }
 
 remove() {

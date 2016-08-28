@@ -22,6 +22,7 @@ start() {
             --hostname local-repos \
             -v $(pwd)/scripts/install/:/var/www/install:ro \
             -v $(pwd)/files/alpine/:/var/www/repo/alpine/:ro \
+            -v $(pwd)/files/apache/:/var/www/repo/apache/:ro \
             -v $(pwd)/files/pypi/:/var/www/repo/pypi/:ro \
             -v $(pwd)/files/oracle/:/var/www/repo/oracle/:ro \
             -v $(pwd)/files/jenkins/:/var/www/repo/jenkins/:ro \

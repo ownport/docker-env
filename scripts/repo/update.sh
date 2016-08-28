@@ -4,7 +4,7 @@
 #
 
 REPO_SCRIPTS_PATH=$(dirname $(readlink -f $0))
-AVAILABLE_REPOSITORY_NAMES="alpine oracle jenkins pypi"
+AVAILABLE_REPOSITORY_NAMES="alpine apache oracle jenkins pypi"
 
 usage() {
 
@@ -67,7 +67,7 @@ apache() {
 
     precheck apache $@
     echo "[INFO] Update Apache repository"
-	APACHE_REPO_PATH=${REPOS_PATH} ${REPO_SCRIPTS_PATH%%/}/apache/update.sh all
+	APACHE_REPO_PATH=${REPOS_PATH} ${REPO_SCRIPTS_PATH%%/}/apache/update.sh
 }
 
 jenkins() {

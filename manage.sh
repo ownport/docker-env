@@ -5,7 +5,7 @@
 
 DOCKER_ENV_PATH=$(dirname $(readlink -f $0))
 
-source ${DOCKER_ENV_PATH%%/}/etc/settings
+source ${DOCKER_ENV_PATH%%/}/etc/docker-env.settings
 
 usage() {
 
@@ -27,6 +27,11 @@ repo-update() {
     if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "alpine" ]
     then
         ${DOCKER_ENV_PATH%%/}/scripts/repo/update.sh alpine ${DOCKER_ENV_PATH%%/}/files/
+    fi
+
+    if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "apache" ]
+    then
+        ${DOCKER_ENV_PATH%%/}/scripts/repo/update.sh apache ${DOCKER_ENV_PATH%%/}/files/
     fi
 
     if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "jenkins" ]

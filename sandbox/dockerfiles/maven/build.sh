@@ -8,12 +8,12 @@ else
     source ${SANDBOX_ENV_PATH%%/}/lib/build-libs.sh
 fi
 
-jdk7u76-mvn-3.0.5() {
+j7u76-mvn-3.0.5() {
 
-    docker build -t 'ownport/maven:jdk7u76-3.0.5' \
+    docker build -t 'ownport/maven:j7u76-3.0.5' \
         $(get_default_args) \
         --build-arg MAVEN_VERSION=3.0.5 \
-        --file ${SANDBOX_ENV_PATH%%/}/dockerfiles/maven/jdk7u76.Dockerfile \
+        --file ${SANDBOX_ENV_PATH%%/}/dockerfiles/maven/j7u76.Dockerfile \
         ${SANDBOX_ENV_PATH%%/}/dockerfiles/maven/
 }
 

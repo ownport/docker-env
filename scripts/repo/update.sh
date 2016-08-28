@@ -15,6 +15,7 @@ usage() {
     echo
     echo "Available repository names:"
     echo " - alpine"
+    echo " - apache"
     echo " - oracle"
     echo " - jenkins"
     echo " - pypi"
@@ -62,6 +63,13 @@ alpine() {
 	ALPINE_REPO_PATH=${REPOS_PATH} ${REPO_SCRIPTS_PATH%%/}/alpine/update.sh all
 }
 
+apache() {
+
+    precheck apache $@
+    echo "[INFO] Update Apache repository"
+	APACHE_REPO_PATH=${REPOS_PATH} ${REPO_SCRIPTS_PATH%%/}/apache/update.sh all
+}
+
 jenkins() {
 
     precheck jenkins $@
@@ -96,6 +104,7 @@ all() {
 
     precheck all $@
     alpine $@
+    apache $@
     jenkins $@
     oracle $@
     pypi $@

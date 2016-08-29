@@ -16,6 +16,7 @@ usage() {
     echo "Available repository names:"
     echo " - alpine"
     echo " - apache"
+    echo " - sonatype"
     echo " - oracle"
     echo " - jenkins"
     echo " - pypi"
@@ -80,6 +81,13 @@ jenkins() {
     JENKINS_REPO_PATH=${REPOS_PATH%%/}/jenkins/ \
         ${REPO_SCRIPTS_PATH%%/}/jenkins/update.sh plugins_by_list ${REPO_SCRIPTS_PATH%%/}/etc/jenkins.plugins
 
+}
+
+sonatype() {
+
+    precheck oracle $@
+    echo "[INFO] Update Sonatype repository"
+    SONATYPE_REPO_PATH=${REPOS_PATH%%/}/sonatype/ ${REPO_SCRIPTS_PATH%%/}/sonatype/update.sh
 }
 
 oracle() {

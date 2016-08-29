@@ -39,6 +39,11 @@ repo-update() {
         ${DOCKER_ENV_PATH%%/}/scripts/repo/update.sh jenkins ${DOCKER_ENV_PATH%%/}/files/
     fi
 
+    if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "sonatype" ]
+    then
+        ${DOCKER_ENV_PATH%%/}/scripts/repo/update.sh sonatype ${DOCKER_ENV_PATH%%/}/files/
+    fi
+
     if [ "${REPOSITORY}" = "all" ] || [ "${REPOSITORY}" = "oracle-java" ]
     then
         ${DOCKER_ENV_PATH%%/}/scripts/repo/update.sh oracle ${DOCKER_ENV_PATH%%/}/files/

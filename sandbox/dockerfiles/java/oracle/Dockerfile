@@ -3,15 +3,16 @@ FROM alpine:latest
 ARG LOCAL_REPOS_HOST
 ARG HTTP_PROXY
 
+ARG GLIBC_VERSION
+
 ARG JAVA_PACKAGE
 ARG JAVA_VERSION
 ARG JAVA_VERSION_BUILD
 
-RUN wget -O - http://${LOCAL_REPOS_HOST}/install/alpine/glibc.sh | sh -s add
+
+RUN wget -O - http://${LOCAL_REPOS_HOST}/install/alpine/glibc.sh | GLIBC_VERSION=${GLIBC_VERSION} sh -s add
 
 RUN	wget -O - http://${LOCAL_REPOS_HOST}/install/java/oracle/jdk.sh | \
 		JAVA_PACKAGE=${JAVA_PACKAGE} \
 		JAVA_VERSION=${JAVA_VERSION} \
 		JAVA_VERSION_BUILD=${JAVA_VERSION_BUILD} sh -s add
-
-		

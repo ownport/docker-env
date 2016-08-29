@@ -20,6 +20,7 @@ __make_java_image() {
 	docker build -t ${IMAGE_NAME} \
 		--no-cache \
 		$(get_default_args) \
+		--build-arg GLIBC_VERSION="2.23-r3" \
 		--build-arg JAVA_PACKAGE=${JAVA_PACKAGE} \
 		--build-arg JAVA_VERSION=${JAVA_VERSION} \
 		--build-arg JAVA_VERSION_BUILD=${JAVA_VERSION_BUILD} \

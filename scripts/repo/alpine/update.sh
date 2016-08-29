@@ -92,8 +92,13 @@ extra_packages() {
 
     echo "[INFO] Update extra packages"
     precheck
+
     echo "[INFO] Update extra packages: glibc-2.21-r2.apk"
     wget -q -c https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-2.21-r2.apk \
+        --directory-prefix ${ALPINE_REPO_PATH}/alpine/apk/
+
+    echo "[INFO] Update extra packages: glibc-2.23-r3.apk"
+    wget -q -c https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.23-r3/glibc-2.23-r3.apk \
         --directory-prefix ${ALPINE_REPO_PATH}/alpine/apk/
 }
 

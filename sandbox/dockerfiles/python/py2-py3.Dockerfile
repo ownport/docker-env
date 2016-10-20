@@ -1,4 +1,4 @@
-FROM ownport/alpine:latest
+FROM ownport/alpine:3.4
 
 ARG LOCAL_REPOS_HOST
 ARG HTTP_PROXY

@@ -55,4 +55,9 @@ repo-update() {
     fi
 }
 
+test() {
+    echo "[ERROR] Not implemented yet"
+    exit 1
+}
+
 $@

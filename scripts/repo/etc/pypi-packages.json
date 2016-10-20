@@ -14,3 +14,4 @@
 {"name": "pytest", "env": ["py2","py3"] }
 {"name": "pytest-cov", "env": ["py2","py3"] }
 {"name": "pytest-mock", "env": ["py2","py3"] }
+{"name": "codecov", "env": ["py2","py3"] }

@@ -3,6 +3,8 @@
 #   The script for managing docker local repositories container
 #
 
+DOCKER_LOCAL_REPOS_VERSION="1.0.4"
+
 usage() {
 
     declare -F | cut -d " " -f 3
@@ -29,7 +31,7 @@ start() {
             -v $(pwd)/files/pypi/:/var/www/repo/pypi/:ro \
             -v $(pwd)/files/tarballs/:/var/www/repo/tarballs/:ro \
             -v $(pwd)/sandbox/scripts/:/var/www/scripts/alpine/:ro \
-            ownport/docker-local-repos:1.0.4 && \
+            ownport/docker-local-repos:${DOCKER_LOCAL_REPOS_VERSION} && \
         echo '[INFO] docker-local-repos container was started';
     else
         echo '[ERROR] docker-local-repos is active already,' $(get_local_repos_id);

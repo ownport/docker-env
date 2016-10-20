@@ -19,7 +19,7 @@
             "php-pdo_sqlite", "php-iconv", "php-openssl", "php-ldap", "icu-libs", "libltdl", "libmcrypt", "libltdl",
             "db", "libsasl", "libldap"
         ],
-        "mirror-path": "/media/data2/docker-env/files/alpine/v3.3/main/x86_64/"
+        "mirror-path": "/media/d2/dev/github/docker-env/files/alpine/v3.3/main/x86_64/"
     },
     "v3.4/main/x86_64": {
         "url": "http://dl-cdn.alpinelinux.org/alpine/v3.4/main/x86_64/",
@@ -42,27 +42,27 @@
             "db", "libsasl", "libldap", "ncurses-terminfo", "ncurses-terminfo-base", "ncurses-libs", "sqlite-libs",
             "xz-libs", "musl", "musl-utils", "libffi-dev", "openssl-dev", "python-dev"
         ],
-        "mirror-path": "/media/data2/docker-env/files/alpine/v3.4/main/x86_64/"
+        "mirror-path": "/media/d2/dev/github/docker-env/files/alpine/v3.4/main/x86_64/"
     },
     "v3.4/community/x86_64": {
         "url": "http://dl-cdn.alpinelinux.org/alpine/v3.4/community/x86_64/",
         "packages": [
 
         ],
-        "mirror-path": "/media/data2/docker-env/files/alpine/v3.4/community/x86_64/"
+        "mirror-path": "/media/d2/dev/github/docker-env/files/alpine/v3.4/community/x86_64/"
     },
     "edge/testing/x86_64": {
         "url": "http://dl-cdn.alpinelinux.org/alpine/edge/testing/x86_64/",
         "packages": [
             "runit", "libzip"
         ],
-        "mirror-path": "/media/data2/docker-env/files/alpine/edge/testing/x86_64/"
+        "mirror-path": "/media/d2/dev/github/docker-env/files/alpine/edge/testing/x86_64/"
     },
     "edge/community/x86_64": {
         "url": "http://dl-cdn.alpinelinux.org/alpine/edge/community/x86_64/",
         "packages": [
             "tini", "java-cacerts", "java-common", "openjdk7", "openjdk8"
         ],
-        "mirror-path": "/media/data2/docker-env/files/alpine/edge/community/x86_64/"
+        "mirror-path": "/media/d2/dev/github/docker-env/files/alpine/edge/community/x86_64/"
     }
 }

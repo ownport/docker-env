@@ -29,7 +29,7 @@ start() {
             -v $(pwd)/files/pypi/:/var/www/repo/pypi/:ro \
             -v $(pwd)/files/tarballs/:/var/www/repo/tarballs/:ro \
             -v $(pwd)/sandbox/scripts/:/var/www/scripts/alpine/:ro \
-            ownport/docker-local-repos:latest && \
+            ownport/docker-local-repos:1.0.4 && \
         echo '[INFO] docker-local-repos container was started';
     else
         echo '[ERROR] docker-local-repos is active already,' $(get_local_repos_id);

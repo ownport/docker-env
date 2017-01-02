@@ -50,4 +50,19 @@ python_dev_3_5() {
         ${SANDBOX_ENV_PATH%%/}/dockerfiles/python/
 }
 
+
+rebuild() {
+
+    python_2_7
+    python_dev_2_7
+    python_3_5
+    python_dev_3_5
+}
+
+push() {
+
+    docker push ownport/python:2.7
+    docker push ownport/python:3.5    
+}
+
 $@

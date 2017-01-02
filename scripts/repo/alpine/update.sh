@@ -17,7 +17,9 @@ all() {
 
     v33_main_x86_64
     v34_main_x86_64
+    v35_main_x86_64
     v34_community_x86_64
+    v35_community_x86_64
     edge_testing_x86_64
     edge_community_x86_64
     extra_packages
@@ -60,6 +62,16 @@ v34_main_x86_64() {
         update v3.4/main/x86_64
 }
 
+v35_main_x86_64() {
+
+    echo "[INFO] Update v3.5/main/x86_64"
+    precheck
+    ${ALPINE_HOME_DIR%%/}/mirror \
+        --config ${ALPINE_HOME_DIR%%/}/../etc/alpine-repositories.json \
+        update v3.5/main/x86_64
+}
+
+
 v34_community_x86_64() {
 
     echo "[INFO] Update v3.4/community/x86_64"
@@ -69,6 +81,14 @@ v34_community_x86_64() {
         update v3.4/community/x86_64
 }
 
+v35_community_x86_64() {
+
+    echo "[INFO] Update v3.5/community/x86_64"
+    precheck
+    ${ALPINE_HOME_DIR%%/}/mirror \
+        --config ${ALPINE_HOME_DIR%%/}/../etc/alpine-repositories.json \
+        update v3.5/community/x86_64
+}
 
 edge_testing_x86_64() {
 

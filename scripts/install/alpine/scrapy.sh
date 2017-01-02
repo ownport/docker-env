@@ -30,7 +30,8 @@ add() {
 
 remove() {
 
-	pip uninstall scrapy sqlitedict avro && \
+	# pip uninstall scrapy sqlitedict avro && \
+	pip uninstall scrapy && \
 	apk del libxslt libxml2 make && \
 	    rm -rf /var/cache/apk/*
 }

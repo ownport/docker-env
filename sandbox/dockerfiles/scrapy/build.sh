@@ -26,6 +26,20 @@ scrapy_1_0_6() {
         ${SANDBOX_ENV_PATH%%/}/dockerfiles/scrapy
 }
 
+scrapy_1_2_0() {
 
+    docker build -t "ownport/scrapy:1.2.0" \
+        --no-cache \
+        $(get_default_args) \
+        --build-arg SCRAPY_VERSION=1.2.0 \
+        ${SANDBOX_ENV_PATH%%/}/dockerfiles/scrapy
+}
+
+rebuild() {
+
+	scrapy_latest
+	scrapy_1_0_6
+	scrapy_1_2_0
+}
 
 $@

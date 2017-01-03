@@ -17,7 +17,7 @@ add() {
     if [ "${PYTHON_VERSION}" == "2.7" ];
     then
 
-        apk add --update python py-pip
+        apk add --update python py-pip || apk add --update python py2-pip
         wget http://${LOCAL_REPOS_HOST}/repo/pypi/simple/pip/ && {
             pip install --upgrade ${PIP_OPTS} pip
         } || {

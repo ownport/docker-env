@@ -12,7 +12,6 @@ fi
 
 python_2_7() {
 
-    echo $(get_local_repos_host)
     docker build -t "ownport/python:2.7" \
         --no-cache \
         $(get_default_args) \
@@ -53,16 +52,20 @@ python_dev_3_5() {
 
 rebuild() {
 
+    echo "[INFO] Installing python 2.7"
     python_2_7
+    echo "[INFO] Installing python 2.7 (dev)"
     python_dev_2_7
+    echo "[INFO] Installing python 3.5"
     python_3_5
+    echo "[INFO] Installing python 3.5 (dev)"
     python_dev_3_5
 }
 
 push() {
 
     docker push ownport/python:2.7
-    docker push ownport/python:3.5    
+    docker push ownport/python:3.5
 }
 
 $@
